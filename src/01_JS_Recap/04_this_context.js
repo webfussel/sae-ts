@@ -3,26 +3,31 @@
 // Pro Tip: Nutzt kein this.
 
 function Person(name) {
-    this.age = 0
+    this.age = 42
     this.name = name
 
-    this.grow = () => {
-        setTimeout(() => {
+    this.grow = function () {
+        const someFunc = () => {
             this.age++
-            console.log(`THIS CONTEXT: Hi! Ich bin ${this.name} und so alt: ${this.age}`)
-        })
+            console.log(`Hi! Ich bin ${this.name} und so alt: ${this.age}`)
+        }
+
+        someFunc()
     }
 
-    this.growUp = () => {
-        setTimeout(function() {
+    this.growUp = function () {
+        function someFunc() {
             this.age++
-            console.log(`THIS CONTEXT: Hi! Ich bin ${this.name} und so alt: ${this.age}`)
-        })
+            console.log(`Hi! Ich bin ${this.name} und so alt: ${this.age}`)
+        }
+
+        someFunc()
     }
 }
 
 const taddl = new Person('Thaddäus')
 const patrick = new Person('Patrick')
 
+console.log('/----------AREA OF THIS CONTEXT----------/')
 taddl.grow()
 patrick.growUp()

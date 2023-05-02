@@ -9,17 +9,21 @@ console.log('spread', ...arr)
 const arrayA = [1, 2, 3]
 const arrayB = [4, 5, 6]
 const arrayC = [...arrayA, ...arrayB]
+const arrayD = [arrayA, arrayB]
 console.log('arrayA', arrayA)
 console.log('arrayB', arrayB)
-console.log('arrayC', arrayC)
+console.log('arrayC (spread)', arrayC)
+console.log('arrayD (no spread)', arrayD)
 
 // Der Spread-Operator kann auch verwendet werden, um Objekte zusammenzufügen.
 const objA = {a: 1, b: 2}
 const objB = {c: 3, d: 4}
 const objC = {...objA, ...objB}
+const objD = {objA, objB}
 console.log('objA', objA)
 console.log('objB', objB)
-console.log('objC', objC)
+console.log('objC (spread)', objC)
+console.log('objD (no spread)', objD)
 
 // Der Rest-Operator wird verwendet, um einzelne Elemente in ein Array zu packen.
 const sum = (...numbers) => numbers.reduce((sum, number) => sum + number)
