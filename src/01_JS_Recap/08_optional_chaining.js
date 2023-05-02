@@ -53,5 +53,5 @@ if (apiResponse && apiResponse.length && apiResponse[0].sprites && apiResponse[0
 const shinyGigantamaxSpriteNew = apiResponse?.[0]?.sprites?.gigantamax?.shiny
 
 console.log('/----------AREA OF OPTIONAL CHAINING----------/')
-console.log(shinyGigantamaxSpriteOld)
-console.log(shinyGigantamaxSpriteNew)
+console.log('if: ', shinyGigantamaxSpriteOld)
+console.log('optional chaining: ', shinyGigantamaxSpriteNew)
