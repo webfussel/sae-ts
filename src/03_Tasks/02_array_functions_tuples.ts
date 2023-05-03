@@ -80,3 +80,7 @@ const pokemon_team = [
 // - Pokémon-Team
 // - Pokémon-Team-Objekt (vorige Aufgabe, neues Format)
 
+
+// PRO TASK
+// Typisiere eine Tupel für die Pokémon Typen, sodass nur die Typen aus allPokemonTypes möglich sind
+// Beispiel: ['Fire', 'Water'] ist erlaubt, ['Fire', 'Banana'] nicht
