@@ -17,8 +17,7 @@ const iMayReturnUndefined = (returnUndefined: boolean): string | undefined => {
     if (!returnUndefined) return 'I AM A BANANA'
 }
 
-// void
-const voidValue: void = undefined
+// void is nearly same as undefined, but it is used as return type of functions
 const voidFunction = (): void => {
     console.log('I am a banana')
 }
