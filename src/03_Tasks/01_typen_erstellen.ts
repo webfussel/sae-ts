@@ -22,7 +22,7 @@ async function getDittoAsync() : Promise<Pokemon> {
 async function func2 () {
     const ditto = await getDittoAsync()
     const dittoAbilities = ditto.abilities.map(ability => ability.ability.name)
-    console.log(dittoAbilities)
+    console.log('DITTO ABILITIES: ', dittoAbilities)
 }
 
 func2()

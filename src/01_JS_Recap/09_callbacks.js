@@ -6,17 +6,17 @@ console.log('/----------AREA OF CALLBACK----------/')
 
 // Eine Funktion, die eine andere Funktion als Parameter erwartet
 function higherOrderFunction(callback) {
-    console.log("higherOrderFunction");
-    callback();
+    console.log("higherOrderFunction")
+    callback?.()
 }
 
 // Eine Funktion, die als Parameter übergeben wird
 function callbackFunction() {
-    console.log("callbackFunction");
+    console.log("callbackFunction")
 }
 
 // Aufruf der Funktion
-higherOrderFunction(callbackFunction);
+higherOrderFunction(callbackFunction)
 
 // Callbacks sind eine tolle Möglichkeit um Code zu modularisieren und zu wiederverwenden.
 // Beispiele dafür sind die verschiedenen Array-Methoden, die eine Callback-Funktion als Parameter erwarten.
@@ -24,14 +24,12 @@ higherOrderFunction(callbackFunction);
 
 // Beispiel: Array.filter()
 // Die filter()-Methode erstellt ein neues Array mit allen Elementen, die den Kriterien einer Callback-Funktion entsprechen.
-
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-const onlyEvenNumbers = numbers.filter(number => number % 2 === 0)
+const onlyEvenNumbers = numbers.filter(x => x % 2 === 0)
 console.log('onlyEvenNumbers', onlyEvenNumbers)
 
 // Jetzt bauen wir das aber mal etwas aufesplittet auf, damit wir es besser verstehen.
 // Hier reimplementiere ich die filter()-Methode, um zu zeigen, was sie macht.
-
 // Und genau hier sieht man, warum die Prototype-Chain hilfreich sein kann:
 // Wir können einfach eigene Methoden zu vorhandenen Objekten hinzufügen (wie in diesem Fall Array)
 Array.prototype.myFilter = function (callback) {

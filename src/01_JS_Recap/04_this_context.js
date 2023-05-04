@@ -25,6 +25,10 @@ class Person {
 
         someFunc()
     }
+
+    growUpTwo() {
+        const doSomething = () => {}
+    }
 }
 
 const taddl = new Person('Thaddäus')

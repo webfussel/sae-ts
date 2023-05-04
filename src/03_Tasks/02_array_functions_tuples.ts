@@ -60,7 +60,9 @@ const pokemon_team = [
 
 
 // Schreibe eine Funktion, welche die Namen aller Pokémon zurück gibt, die Gigantamax einsetzen können (giga: true)
-
+const getGigantamaxNames = (team: any) => team.filter((pokemon: any) => pokemon.giga).map((pokemon: any) => pokemon.name)
+const gigas = getGigantamaxNames(pokemon_team)
+console.log('Gigantamax Pokémon:', gigas)
 
 
 // Schreibe eine Funktion, welche mir alle Typen aufführt, die NICHT in meinem Team vorhanden sind
@@ -69,8 +71,8 @@ const pokemon_team = [
 
 // Schreibe eine Funktion, welche die Pokémon in ein Ojekt mit folgendem Format umwandelt:
 // {
-//   Dragapult: [Dragon, Ghost],
-//   Tyranitar: [Rock, Dark],
+//   Dragapult: ['Dragon', 'Ghost'],
+//   Tyranitar: ['Rock', 'Dark'],
 //   [... etc.]
 // }
 

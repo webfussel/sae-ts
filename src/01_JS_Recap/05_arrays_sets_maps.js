@@ -2,6 +2,7 @@
 
 // Arrays können beliebige Werte beliebig oft speichern
 const array = [1, 2]
+array.push(2)
 array.push(3)
 
 // Sets können jeden Wert nur einmal speichern
@@ -12,6 +13,7 @@ set.add(3)
 // Maps haben alles als Key und Value
 const map = new Map([[1, 'one'], [2, 'two'], [3, 'three']])
 map.set(3, 'three')
+map.get(3)
 
 console.log('/----------AREA OF ARRAYS SETS MAPS----------/')
 console.log(array)
@@ -30,4 +32,3 @@ for (const value of set) {
 for (const [key, value] of map) {
     console.log(key, value)
 }
-
