@@ -9,12 +9,12 @@ interface Abilities {
     is_hidden: boolean
     slot: number
 }
-interface Pokemon {
+interface PokemonA {
     name: string;
     abilities: Abilities[]
 }
 
-async function getDittoAsync() : Promise<Pokemon> {
+async function getDittoAsync() : Promise<PokemonA> {
     const response : Response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
     return response.json()
 }

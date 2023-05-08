@@ -19,7 +19,18 @@ const allPokemonTypes = [
     'Fairy',
 ]
 
-const pokemon_team = [
+type Type = [string, string?]
+
+interface Pokemon {
+    name: string
+    number: number
+    types: Type
+    giga: boolean
+}
+
+type PokemonTeam = [Pokemon, Pokemon?, Pokemon?, Pokemon?, Pokemon?, Pokemon?]
+
+const pokemon_team : PokemonTeam = [
     {
         name: 'Dragapult',
         number: 887,
@@ -58,6 +69,19 @@ const pokemon_team = [
     }
 ]
 
+type PokemonTeamObject = Record<string, Type>
+
+interface PokemonObj {
+    [pokemonName : string] : Type
+}
+
+const pokemonObject : PokemonTeamObject = {
+  'dragapult': ['Dragon', 'Ghost'],
+  'tyranitar': ['Rock', 'Dark'],
+}
+
+const dragapultTypes = pokemonObject.dragapult
+const dragapultTypes2 = pokemon_team.find(pokemon => pokemon?.name === 'dragapult')?.types
 
 // Schreibe eine Funktion, welche die Namen aller Pokémon zurück gibt, die Gigantamax einsetzen können (giga: true)
 const getGigantamaxNames = (team: any) =>
@@ -82,7 +106,7 @@ function getGigantamaxNames2(team: any) {
         .map(getPokemonName)
 }
 
-const getGigas = () => {
+/*const getGigas = () => {
     const gigas = []
     for (const pokemon of pokemon_team) {
         if (pokemon.giga) {
@@ -90,7 +114,7 @@ const getGigas = () => {
         }
     }
     return gigas
-}
+}*/
 
 // Schreibe eine Funktion, welche mir alle Typen aufführt, die NICHT in meinem Team vorhanden sind
 
