@@ -27,5 +27,35 @@ const getDitto = async () : Promise<ApiResponse<PokemonA>> => {
     return { result: json }
 }
 
-const ditto : ApiResponse<PokemonA> = await getDitto()
+const ditto = await getDitto()
 console.log('GENERICS: ', ditto)
+
+// Generics können auch direkt mit Funktionen übergeben werden
+const getDittoWithGenerics = async <T> () : Promise<ApiResponse<T>> => {
+    const response : Response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+    const json = await response.json()
+    return { result: json }
+}
+
+// Jetzt können wir direkt beim Funktionsaufruf bestimmen, welchen Typen wir zurückgeben wollen
+const dittoWithGenerics= await getDittoWithGenerics<PokemonA>()
+
+
+// Auch Übergabeparameter können Generics sein
+const removeRandomArrayItem = <T> (array: T[]) : T[] => {
+    const randomIndex = Math.floor(Math.random() * array.length)
+    const newArray = [...array]
+    newArray.splice(randomIndex, 1)
+    return newArray
+}
+
+// Hier verhält sich der Generic FAST wie any, da es egal ist, welche Typen wir übergeben
+// Aber ihr könnt an den automatischen Typisierungen feststellen, dass es sich nicht um any handelt
+// Dadurch haben wir in der weiteren Anwendung die Möglichkeit, die Typisierungen zu nutzen statt mit any rumzufummeln
+const removedItemArray = removeRandomArrayItem([1, 2, 3, 4, 5])
+const removedItemArray2 = removeRandomArrayItem(['a', 'b', 'c', 'd', 'e'])
+const removedItemArray3 = removeRandomArrayItem([1, 2, true, 'd', 'e'])
+
+console.log('GENERICS: removedItemArray: ', removedItemArray)
+console.log('GENERICS: removedItemArray2: ', removedItemArray2)
+console.log('GENERICS: removedItemArray2: ', removedItemArray3)
