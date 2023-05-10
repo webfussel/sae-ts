@@ -17,9 +17,9 @@ const allPokemonTypes = [
     'Dragon',
     'Steel',
     'Fairy',
-]
+] as const
 
-type Type = [string, string?]
+type Type = [typeof allPokemonTypes[number], typeof allPokemonTypes[number]?]
 
 interface Pokemon {
     name: string
@@ -72,7 +72,7 @@ const pokemon_team : PokemonTeam = [
 type PokemonTeamObject = Record<string, Type>
 
 interface PokemonObj {
-    [pokemonName : string] : Type
+    [pokemonName: string]: Type
 }
 
 const pokemonObject : PokemonTeamObject = {

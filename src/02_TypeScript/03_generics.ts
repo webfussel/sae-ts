@@ -1,17 +1,19 @@
 // Ein Generic (hier das T) ist ein Platzhalter für einen Typen
 // Es erlaubt euch bei der Nutzung des Typs, den Typen zu bestimmen
+
+type SomeResponse<T> = T[]
 interface ApiResponse<T> {
     result: T
 }
 
 // Hier haben wir dem Generic den Typen string zugewiesen
 const response : ApiResponse<string> = {
-    result: 'bla'
+    result: 'bla',
 }
 
 // Hier hat er den Typen number
 const otherResponse : ApiResponse<number> = {
-    result: 123
+    result: 123,
 }
 
 // Generics sind besonders nützlich, wenn man APIs ansprechen möchte, deren Rückgabewerte sich unterscheiden können
@@ -19,7 +21,7 @@ const otherResponse : ApiResponse<number> = {
 // Beispiel: https://pokeapi.co/api/v2/pokemon/ditto
 const getDitto = async () : Promise<ApiResponse<PokemonA>> => {
     const response : Response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-    const json = await response.json()
+    const json : PokemonA = await response.json()
 
     // Hier befindet sich nun der Typ PokemonA in der Variable json
     // Wir haben also als Rückgabewert ein ApiResponse<PokemonA>
@@ -33,7 +35,7 @@ console.log('GENERICS: ', ditto)
 // Generics können auch direkt mit Funktionen übergeben werden
 const getDittoWithGenerics = async <T> () : Promise<ApiResponse<T>> => {
     const response : Response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-    const json = await response.json()
+    const json : T = await response.json()
     return { result: json }
 }
 
@@ -58,4 +60,4 @@ const removedItemArray3 = removeRandomArrayItem([1, 2, true, 'd', 'e'])
 
 console.log('GENERICS: removedItemArray: ', removedItemArray)
 console.log('GENERICS: removedItemArray2: ', removedItemArray2)
-console.log('GENERICS: removedItemArray2: ', removedItemArray3)
+console.log('GENERICS: removedItemArray3: ', removedItemArray3)
