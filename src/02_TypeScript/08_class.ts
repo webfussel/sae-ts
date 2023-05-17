@@ -37,8 +37,8 @@ class HealthEntity extends Entity {
 
 function AddDebug<TBase extends new (...args: any[]) => {}> (Base : TBase) {
     return class DebugEntity extends Base {
-        print(): void {
-            console.log(`THIS IS A DEBUG ENTITY`, (this as any)['name'])
+        print(): string {
+            return `THIS IS A DEBUG ENTITY, ${(this as any)['name']}`
         }
     }
 }
