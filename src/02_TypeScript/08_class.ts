@@ -1,7 +1,7 @@
-class Entity {
+abstract class Entity {
     private readonly _name: string
 
-    constructor(name: string) {
+    protected constructor(name: string) {
         this._name = name
     }
 
