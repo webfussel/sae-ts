@@ -52,4 +52,4 @@ player.gainHealth(10)
 enemy.loseHealth(10)
 
 console.log('08: CLASS', player)
-console.log('08: CLASS', enemy)
+console.log('08: CLASS', enemy.print())
