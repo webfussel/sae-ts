@@ -28,7 +28,7 @@ interface Pokemon {
     giga: boolean
 }
 
-type PokemonTeam = [Pokemon, Pokemon?, Pokemon?, Pokemon?, Pokemon?, Pokemon?]
+type PokemonTeam = [Pokemon, Pokemon, Pokemon, Pokemon, Pokemon, Pokemon]
 
 const pokemon_team : PokemonTeam = [
     {
@@ -69,18 +69,11 @@ const pokemon_team : PokemonTeam = [
     }
 ]
 
-type PokemonTeamObject = Record<string, Type>
 
 interface PokemonObj {
     [pokemonName: string]: Type
 }
 
-const pokemonObject : PokemonTeamObject = {
-  'dragapult': ['Dragon', 'Ghost'],
-  'tyranitar': ['Rock', 'Dark'],
-}
-
-const dragapultTypes = pokemonObject.dragapult
 const dragapultTypes2 = pokemon_team.find(pokemon => pokemon?.name === 'dragapult')?.types
 
 // Schreibe eine Funktion, welche die Namen aller Pokémon zurück gibt, die Gigantamax einsetzen können (giga: true)
@@ -129,8 +122,15 @@ function getGigantamaxNames2(team: any) {
 //   [... etc.]
 // }
 
+type PokemonTeamObject = Record<string, Type>
+const team = pokemon_team.reduce<PokemonTeamObject>((result, current) => {
+    return {
+        ...result,
+        [current.name] : current.types
+    }
+}, {})
 
-
+console.log('POKEMON TEAM', team)
 
 // Typisiere:
 // - Pokémon
