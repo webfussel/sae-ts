@@ -9,6 +9,7 @@ add('Hello', ' World!')
 
 function getElement (element : HTMLDivElement) : Element | null
 function getElement (element : HTMLFormElement) : Element | null
+
 function getElement (element : HTMLElement) : Element | null
 
 function getElement (element : Element) : Element | null {

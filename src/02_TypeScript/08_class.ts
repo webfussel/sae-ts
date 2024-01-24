@@ -3,8 +3,8 @@ interface IPickUp {
 }
 
 abstract class Entity {
-    private static ALL_ENTITIES : number = 0
-    _name: string
+    static ALL_ENTITIES : number = 0
+    readonly _name: string
 
     protected constructor(name: string) {
         this._name = name
@@ -63,6 +63,7 @@ console.log(webfussel.health)
 
 function AddDebug<TBase extends new (...args: any[]) => {}> (Base : TBase) {
     return class DebugEntity extends Base {
+        _DEBUG_NAME : string = 'DEBUG'
         print(): string {
             return `THIS IS A DEBUG ENTITY, ${(this as any).name}`
         }
@@ -81,3 +82,14 @@ enemy.loseHealth(10)
 console.log('08: CLASS', player)
 console.log('08: CLASS', enemy)
 console.log('08: CLASS', enemy.print())
+
+// ---------------------------------
+
+const inst1 = new HealthEntity('ShopKeeper', 100)
+const inst2 = new HealthEntity('Ganon', 100)
+const inst3 = new HealthEntity('Link', 100)
+
+inst1.name
+
+console.log(HealthEntity.allEntities)
+console.log(Entity.allEntities)

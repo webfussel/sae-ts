@@ -1,9 +1,10 @@
 //abilities, name
-// abilites [ability(name, url), is_hidden, slot ]abilities: [
+// abilities [ability(name, url), is_hidden, slot ]abilities: [
 interface Ability {
     name: string
     url: string
 }
+
 interface Abilities {
     ability : Ability
     is_hidden: boolean

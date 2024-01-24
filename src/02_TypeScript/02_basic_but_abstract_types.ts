@@ -1,7 +1,7 @@
 // Es gibt weitere grundlegende Typen, die wir anschauen sollten, die aber häufig nur in Kombination mit anderen Typen, oder als Rückgabetypen von Funktionen auftauchen.
 
 // null
-const nullValue: null = null
+const nullValue : null = null
 const stringOrNull: string | null = null
 const iMayReturnNull = (returnNull: boolean): string | null => {
     if (returnNull) { // Im besten Falle würde man hier irgendeine Abfrage machen, evtl. eine API aufrufen, und dann null in manchen Fällen zurückgeben.
@@ -39,6 +39,6 @@ const someFunc = (x: string | number): number => {
 }
 
 // unknown
-const unkownFunction = (x: unknown): void => {
+const unknownFunction = (x: unknown): void => {
     console.log(x) // can't do much with x, as we don't know its type
 }
